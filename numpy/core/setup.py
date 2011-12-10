@@ -684,12 +684,12 @@ def configuration(parent_package='',top_path=None):
         from numpy.distutils.misc_util import get_cmd
 
         subpath = join('src', 'multiarray')
-        sources = [join(local_dir, subpath, 'scalartypes.c.src'),
-                   join(local_dir, subpath, 'arraytypes.c.src'),
-                   join(local_dir, subpath, 'nditer_templ.c.src'),
-                   join(local_dir, subpath, 'lowlevel_strided_loops.c.src'),
-                   join(local_dir, subpath, 'boolean_ops.c.src'),
-                   join(local_dir, subpath, 'einsum.c.src')]
+        sources = [join(local_dir, subpath, 'scalartypes.cpp.src'),
+                   join(local_dir, subpath, 'arraytypes.cpp.src'),
+                   join(local_dir, subpath, 'nditer_templ.cpp.src'),
+                   join(local_dir, subpath, 'lowlevel_strided_loops.cpp.src'),
+                   join(local_dir, subpath, 'boolean_ops.cpp.src'),
+                   join(local_dir, subpath, 'einsum.cpp.src')]
 
         # numpy.distutils generate .c from .c.src in weird directories, we have
         # to add them there as they depend on the build_dir
@@ -753,58 +753,58 @@ def configuration(parent_package='',top_path=None):
             ]
 
     multiarray_src = [
-            join('src', 'multiarray', 'arrayobject.c'),
-            join('src', 'multiarray', 'arraytypes.c.src'),
-            join('src', 'multiarray', 'array_assign.c'),
-            join('src', 'multiarray', 'array_assign_scalar.c'),
-            join('src', 'multiarray', 'array_assign_array.c'),
-            join('src', 'multiarray', 'boolean_ops.c.src'),
-            join('src', 'multiarray', 'buffer.c'),
-            join('src', 'multiarray', 'calculation.c'),
-            join('src', 'multiarray', 'common.c'),
-            join('src', 'multiarray', 'convert.c'),
-            join('src', 'multiarray', 'convert_datatype.c'),
-            join('src', 'multiarray', 'conversion_utils.c'),
-            join('src', 'multiarray', 'ctors.c'),
-            join('src', 'multiarray', 'datetime.c'),
-            join('src', 'multiarray', 'datetime_strings.c'),
-            join('src', 'multiarray', 'datetime_busday.c'),
-            join('src', 'multiarray', 'datetime_busdaycal.c'),
-            join('src', 'multiarray', 'descriptor.c'),
-            join('src', 'multiarray', 'dtype_transfer.c'),
-            join('src', 'multiarray', 'einsum.c.src'),
-            join('src', 'multiarray', 'flagsobject.c'),
-            join('src', 'multiarray', 'getset.c'),
-            join('src', 'multiarray', 'hashdescr.c'),
-            join('src', 'multiarray', 'item_selection.c'),
-            join('src', 'multiarray', 'iterators.c'),
-            join('src', 'multiarray', 'lowlevel_strided_loops.c.src'),
-            join('src', 'multiarray', 'mapping.c'),
-            join('src', 'multiarray', 'methods.c'),
-            join('src', 'multiarray', 'multiarraymodule.c'),
-            join('src', 'multiarray', 'na_mask.c'),
-            join('src', 'multiarray', 'na_object.c'),
-            join('src', 'multiarray', 'nditer_templ.c.src'),
-            join('src', 'multiarray', 'nditer_api.c'),
-            join('src', 'multiarray', 'nditer_constr.c'),
-            join('src', 'multiarray', 'nditer_pywrap.c'),
-            join('src', 'multiarray', 'number.c'),
-            join('src', 'multiarray', 'numpymemoryview.c'),
-            join('src', 'multiarray', 'numpyos.c'),
-            join('src', 'multiarray', 'reduction.c'),
-            join('src', 'multiarray', 'refcount.c'),
-            join('src', 'multiarray', 'sequence.c'),
-            join('src', 'multiarray', 'shape.c'),
-            join('src', 'multiarray', 'scalarapi.c'),
-            join('src', 'multiarray', 'scalartypes.c.src'),
-            join('src', 'multiarray', 'usertypes.c')]
+            join('src', 'multiarray', 'arrayobject.cpp'),
+            join('src', 'multiarray', 'arraytypes.cpp.src'),
+            join('src', 'multiarray', 'array_assign.cpp'),
+            join('src', 'multiarray', 'array_assign_scalar.cpp'),
+            join('src', 'multiarray', 'array_assign_array.cpp'),
+            join('src', 'multiarray', 'boolean_ops.cpp.src'),
+            join('src', 'multiarray', 'buffer.cpp'),
+            join('src', 'multiarray', 'calculation.cpp'),
+            join('src', 'multiarray', 'common.cpp'),
+            join('src', 'multiarray', 'convert.cpp'),
+            join('src', 'multiarray', 'convert_datatype.cpp'),
+            join('src', 'multiarray', 'conversion_utils.cpp'),
+            join('src', 'multiarray', 'ctors.cpp'),
+            join('src', 'multiarray', 'datetime.cpp'),
+            join('src', 'multiarray', 'datetime_strings.cpp'),
+            join('src', 'multiarray', 'datetime_busday.cpp'),
+            join('src', 'multiarray', 'datetime_busdaycal.cpp'),
+            join('src', 'multiarray', 'descriptor.cpp'),
+            join('src', 'multiarray', 'dtype_transfer.cpp'),
+            join('src', 'multiarray', 'einsum.cpp.src'),
+            join('src', 'multiarray', 'flagsobject.cpp'),
+            join('src', 'multiarray', 'getset.cpp'),
+            join('src', 'multiarray', 'hashdescr.cpp'),
+            join('src', 'multiarray', 'item_selection.cpp'),
+            join('src', 'multiarray', 'iterators.cpp'),
+            join('src', 'multiarray', 'lowlevel_strided_loops.cpp.src'),
+            join('src', 'multiarray', 'mapping.cpp'),
+            join('src', 'multiarray', 'methods.cpp'),
+            join('src', 'multiarray', 'multiarraymodule.cpp'),
+            join('src', 'multiarray', 'na_mask.cpp'),
+            join('src', 'multiarray', 'na_object.cpp'),
+            join('src', 'multiarray', 'nditer_templ.cpp.src'),
+            join('src', 'multiarray', 'nditer_api.cpp'),
+            join('src', 'multiarray', 'nditer_constr.cpp'),
+            join('src', 'multiarray', 'nditer_pywrap.cpp'),
+            join('src', 'multiarray', 'number.cpp'),
+            join('src', 'multiarray', 'numpymemoryview.cpp'),
+            join('src', 'multiarray', 'numpyos.cpp'),
+            join('src', 'multiarray', 'reduction.cpp'),
+            join('src', 'multiarray', 'refcount.cpp'),
+            join('src', 'multiarray', 'sequence.cpp'),
+            join('src', 'multiarray', 'shape.cpp'),
+            join('src', 'multiarray', 'scalarapi.cpp'),
+            join('src', 'multiarray', 'scalartypes.cpp.src'),
+            join('src', 'multiarray', 'usertypes.cpp')]
 
     if PYTHON_HAS_UNICODE_WIDE:
-        multiarray_src.append(join('src', 'multiarray', 'ucsnarrow.c'))
+        multiarray_src.append(join('src', 'multiarray', 'ucsnarrow.cpp'))
 
     if not ENABLE_SEPARATE_COMPILATION:
         multiarray_deps.extend(multiarray_src)
-        multiarray_src = [join('src', 'multiarray', 'multiarraymodule_onefile.c')]
+        multiarray_src = [join('src', 'multiarray', 'multiarraymodule_onefile.cpp')]
         multiarray_src.append(generate_multiarray_templated_sources)
 
     config.add_extension('multiarray',
@@ -930,7 +930,7 @@ def configuration(parent_package='',top_path=None):
     #######################################################################
 
     config.add_extension('multiarray_tests',
-                    sources = [join('src', 'multiarray', 'multiarray_tests.c.src')])
+                    sources = [join('src', 'multiarray', 'multiarray_tests.cpp.src')])
 
     config.add_data_dir('tests')
     config.add_data_dir('tests/data')

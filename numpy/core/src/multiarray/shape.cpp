@@ -189,7 +189,7 @@ PyArray_Newshape(PyArrayObject *self, PyArray_Dims *newdims,
     int flags, build_maskna_strides = 0;
 
     if (order == NPY_ANYORDER) {
-        order = PyArray_ISFORTRAN(self);
+        order = (NPY_ORDER)PyArray_ISFORTRAN(self);
     }
     /*  Quick check to make sure anything actually needs to be done */
     if (ndim == PyArray_NDIM(self)) {
@@ -435,17 +435,17 @@ _putzero(char *optr, PyObject *zero, PyArray_Descr *dtype)
     }
     else if (PyDescr_HASFIELDS(dtype)) {
         PyObject *key, *value, *title = NULL;
-        PyArray_Descr *new;
+        PyArray_Descr *new_descr;
         int offset;
         Py_ssize_t pos = 0;
         while (PyDict_Next(dtype->fields, &pos, &key, &value)) {
             if NPY_TITLE_KEY(key, value) {
                 continue;
             }
-            if (!PyArg_ParseTuple(value, "Oi|O", &new, &offset, &title)) {
+            if (!PyArg_ParseTuple(value, "Oi|O", &new_descr, &offset, &title)) {
                 return;
             }
-            _putzero(optr + offset, zero, new);
+            _putzero(optr + offset, zero, new_descr);
         }
     }
     else {

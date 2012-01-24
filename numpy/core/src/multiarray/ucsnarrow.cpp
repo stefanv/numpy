@@ -117,7 +117,7 @@ MyPyUnicode_Resize(PyUnicodeObject *uni, int length)
     oldstr = uni->str;
     PyMem_RESIZE(uni->str, Py_UNICODE, length+1);
     if (!uni->str) {
-        uni->str = oldstr;
+        uni->str = (Py_UNICODE *)oldstr;
         PyErr_NoMemory();
         return -1;
     }

@@ -265,7 +265,7 @@ raw_array_wheremasked_assign_array_preservena(int ndim, npy_intp *shape,
 
     /* Allocate a buffer for inverting/anding the mask */
     maskna_itemsize = maskna_dtype->elsize;
-    maskna_buffer = PyArray_malloc(NPY_ARRAY_ASSIGN_BUFFERSIZE *
+    maskna_buffer = (char *)PyArray_malloc(NPY_ARRAY_ASSIGN_BUFFERSIZE *
                                     maskna_itemsize);
     if (maskna_buffer == NULL) {
         PyErr_NoMemory();

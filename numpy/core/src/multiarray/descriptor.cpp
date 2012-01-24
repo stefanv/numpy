@@ -276,7 +276,7 @@ _convert_from_tuple(PyObject *obj)
         newdescr->elsize = type->elsize;
         newdescr->elsize *= PyArray_MultiplyList(shape.ptr, shape.len);
         PyDimMem_FREE(shape.ptr);
-        newdescr->subarray = PyArray_malloc(sizeof(PyArray_ArrayDescr));
+        newdescr->subarray = (_arr_descr *)PyArray_malloc(sizeof(PyArray_ArrayDescr));
         newdescr->flags = type->flags;
         newdescr->subarray->base = type;
         type = NULL;
@@ -1463,7 +1463,7 @@ PyArray_DescrNew(PyArray_Descr *base)
     Py_XINCREF(newdescr->fields);
     Py_XINCREF(newdescr->names);
     if (newdescr->subarray) {
-        newdescr->subarray = PyArray_malloc(sizeof(PyArray_ArrayDescr));
+        newdescr->subarray = (_arr_descr *)PyArray_malloc(sizeof(PyArray_ArrayDescr));
         memcpy(newdescr->subarray, base->subarray, sizeof(PyArray_ArrayDescr));
         Py_INCREF(newdescr->subarray->shape);
         Py_INCREF(newdescr->subarray->base);
@@ -2412,7 +2412,7 @@ arraydescr_setstate(PyArray_Descr *self, PyObject *args)
             return NULL;
         }
 
-        self->subarray = PyArray_malloc(sizeof(PyArray_ArrayDescr));
+        self->subarray = (_arr_descr *)PyArray_malloc(sizeof(PyArray_ArrayDescr));
         if (!PyDataType_HASSUBARRAY(self)) {
             return PyErr_NoMemory();
         }
@@ -2579,7 +2579,7 @@ PyArray_DescrNewByteorder(PyArray_Descr *self, char newendian)
     char endian;
 
     newdescr = PyArray_DescrNew(self);
-    endian = newdescr-descr>byteorder;
+    endian = newdescr->byteorder;
     if (endian != PyArray_IGNORE) {
         if (newendian == PyArray_SWAP) {
             /* swap byteorder */

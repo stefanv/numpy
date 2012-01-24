@@ -316,7 +316,7 @@ PyArray_HolidaysConverter(PyObject *dates_in, npy_holidayslist *holidays)
 
     /* Allocate the memory for the dates */
     count = PyArray_DIM(dates, 0);
-    holidays->begin = PyArray_malloc(sizeof(npy_datetime) * count);
+    holidays->begin = (npy_datetime *)PyArray_malloc(sizeof(npy_datetime) * count);
     if (holidays->begin == NULL) {
         PyErr_NoMemory();
         goto fail;

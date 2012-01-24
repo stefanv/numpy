@@ -92,5 +92,4 @@ raw_array_is_aligned(int ndim, char *data, npy_intp *strides, int alignment);
 NPY_NO_EXPORT int
 arrays_overlap(PyArrayObject *arr1, PyArrayObject *arr2);
 
-
 #endif

@@ -26,7 +26,8 @@ typedef struct {
     npy_bool weekmask[7];
 } NpyBusDayCalendar;
 
-NPY_NO_EXPORT PyTypeObject NpyBusDayCalendar_Type;
+//NPY_NO_EXPORT PyTypeObject NpyBusDayCalendar_Type;
+extern PyTypeObject NpyBusDayCalendar_Type;
 
 /*
  * Converts a Python input into a 7-element weekmask, where 0 means

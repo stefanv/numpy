@@ -255,7 +255,7 @@ PyArray_ToString(PyArrayObject *self, NPY_ORDER order)
     PyArrayIterObject *it;
 
     if (order == NPY_ANYORDER)
-        order = PyArray_ISFORTRAN(self);
+        order = (NPY_ORDER)PyArray_ISFORTRAN(self);
 
     /*        if (PyArray_TYPE(self) == PyArray_OBJECT) {
               PyErr_SetString(PyExc_ValueError, "a string for the data" \
@@ -270,20 +270,20 @@ PyArray_ToString(PyArrayObject *self, NPY_ORDER order)
         ret = PyBytes_FromStringAndSize(PyArray_DATA(self), (Py_ssize_t) numbytes);
     }
     else {
-        PyObject *new;
+        PyObject *new_obj;
         if (order == NPY_FORTRANORDER) {
             /* iterators are always in C-order */
-            new = PyArray_Transpose(self, NULL);
-            if (new == NULL) {
+            new_obj = PyArray_Transpose(self, NULL);
+            if (new_obj == NULL) {
                 return NULL;
             }
         }
         else {
             Py_INCREF(self);
-            new = (PyObject *)self;
+            new_obj = (PyObject *)self;
         }
-        it = (PyArrayIterObject *)PyArray_IterNew(new);
-        Py_DECREF(new);
+        it = (PyArrayIterObject *)PyArray_IterNew(new_obj);
+        Py_DECREF(new_obj);
         if (it == NULL) {
             return NULL;
         }
@@ -335,7 +335,7 @@ PyArray_FillWithScalar(PyArrayObject *arr, PyObject *obj)
         if (dtype == NULL) {
             return -1;
         }
-        value = scalar_value(obj, dtype);
+        value = (char *)scalar_value(obj, dtype);
         if (value == NULL) {
             Py_DECREF(dtype);
             return -1;

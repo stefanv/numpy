@@ -17,6 +17,11 @@
 
 #include "sequence.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 static int
 array_any_nonzero(PyArrayObject *mp);
 
@@ -209,3 +214,9 @@ array_any_nonzero(PyArrayObject *arr)
     Py_DECREF(it);
     return anyTRUE;
 }
+
+#ifdef __cplusplus
+}
+#endif
+
+

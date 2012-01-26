@@ -1,6 +1,10 @@
 #ifndef _NPY_PRIVATE__DATETIME_BUSDAYDEF_H_
 #define _NPY_PRIVATE__DATETIME_BUSDAYDEF_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /*
  * A list of holidays, which should be sorted, not contain any
  * duplicates or NaTs, and not include any days already excluded
@@ -57,6 +61,8 @@ normalize_holidays_list(npy_holidayslist *holidays, npy_bool *weekmask);
 NPY_NO_EXPORT int
 PyArray_HolidaysConverter(PyObject *dates_in, npy_holidayslist *holidays);
 
-
+#ifdef __cplusplus
+}
+#endif
 
 #endif

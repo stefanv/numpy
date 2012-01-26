@@ -23,6 +23,11 @@
 
 #include "item_selection.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 /*NUMPY_API
  * Take
  */
@@ -2496,3 +2501,9 @@ PyArray_MultiIndexSetItem(PyArrayObject *self, npy_intp *multi_index,
         return PyArray_DESCR(self)->f->setitem(obj, data, self);
     }
 }
+
+#ifdef __cplusplus
+}
+#endif
+
+

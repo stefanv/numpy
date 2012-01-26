@@ -22,6 +22,9 @@
 
 #include "numpyos.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /*
  *****************************************************************************
@@ -4028,3 +4031,9 @@ set_typeinfo(PyObject *dict)
 }
 
 #undef _MAX_LETTER
+
+#ifdef __cplusplus
+}
+#endif
+
+

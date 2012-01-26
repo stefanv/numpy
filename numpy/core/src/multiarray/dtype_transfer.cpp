@@ -28,6 +28,10 @@
 #include "shape.h"
 #include "lowlevel_strided_loops.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define NPY_LOWLEVEL_BUFFER_BLOCKSIZE  128
 
 /********** PRINTF DEBUG TRACING **************/
@@ -4478,3 +4482,9 @@ PyArray_CastRawNDimArrays(int ndim, npy_intp *shape,
     /* If needs_api was set to 1, it may have raised a Python exception */
     return (needs_api && PyErr_Occurred()) ? NPY_FAIL : NPY_SUCCEED;
 }
+
+#ifdef __cplusplus
+}
+#endif
+
+

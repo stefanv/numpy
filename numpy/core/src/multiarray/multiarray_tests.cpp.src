@@ -4,6 +4,10 @@
 
 #include "numpy/npy_3kcompat.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /*
  * TODO:
  *  - Handle mode
@@ -420,3 +424,9 @@ initmultiarray_tests(void)
     }
     return RETVAL;
 }
+
+#ifdef __cplusplus
+}
+#endif
+
+

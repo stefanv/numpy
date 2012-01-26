@@ -21,6 +21,11 @@
 
 #include "numpymemoryview.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 
 #if (PY_VERSION_HEX >= 0x02060000) && (PY_VERSION_HEX < 0x02070000)
 
@@ -309,3 +314,9 @@ _numpymemoryview_init(PyObject **typeobject)
 }
 
 #endif
+
+#ifdef __cplusplus
+}
+#endif
+
+

@@ -26,6 +26,11 @@
 #include "datetime_strings.h"
 #include "na_object.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 /*
  * Imports the PyDateTime functions so we can create these objects.
  * This is called during module initialization
@@ -3989,3 +3994,9 @@ find_object_datetime_type(PyObject *obj, int type_num)
         return NULL;
     }
 }
+
+#ifdef __cplusplus
+}
+#endif
+
+

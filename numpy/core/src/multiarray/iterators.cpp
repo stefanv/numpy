@@ -17,6 +17,11 @@
 #include "ctors.h"
 #include "common.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 #define NEWAXIS_INDEX -1
 #define ELLIPSIS_INDEX -2
 #define SINGLE_INDEX -3
@@ -2218,3 +2223,9 @@ NPY_NO_EXPORT PyTypeObject PyArrayNeighborhoodIter_Type = {
     0,                                          /* tp_version_tag */
 #endif
 };
+
+#ifdef __cplusplus
+}
+#endif
+
+

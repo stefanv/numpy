@@ -14,6 +14,10 @@
 
 #include "numpy/npy_3kcompat.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Functions only needed on narrow builds of Python
    for converting back and forth between the NumPy Unicode data-type
    (always 4-byte)
@@ -125,3 +129,9 @@ MyPyUnicode_Resize(PyUnicodeObject *uni, int length)
     uni->length = length;
     return 0;
 }
+
+#ifdef __cplusplus
+}
+#endif
+
+

@@ -26,6 +26,10 @@
 #include "datetime_strings.h"
 #include "na_object.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /*
  * Reading from a file or a string.
  *
@@ -3959,3 +3963,8 @@ PyArray_SubclassWrap(PyArrayObject *arr_of_subclass, PyArrayObject *towrap)
 
     return (PyArrayObject *)wrapped;
 }
+
+#ifdef __cplusplus
+}
+#endif
+

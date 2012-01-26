@@ -14,6 +14,11 @@
 
 #include "number.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 /*************************************************************************
  ****************   Implement Number Protocol ****************************
  *************************************************************************/
@@ -868,3 +873,9 @@ NPY_NO_EXPORT PyNumberMethods array_as_number = {
 #endif
 
 };
+
+#ifdef __cplusplus
+}
+#endif
+
+

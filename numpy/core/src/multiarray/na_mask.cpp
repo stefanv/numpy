@@ -22,6 +22,11 @@
 #include "array_assign.h"
 #include "na_object.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 /*NUMPY_API
  *
  * Returns true if the array has an NA mask. When
@@ -953,3 +958,9 @@ PyArray_GetMaskAndFunction(
     *out_opdata = NULL;
     return 0;
 }
+
+#ifdef __cplusplus
+}
+#endif
+
+

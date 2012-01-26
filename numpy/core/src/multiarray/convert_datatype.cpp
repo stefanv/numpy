@@ -20,6 +20,10 @@
 #include "_datetime.h"
 #include "datetime_strings.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /*NUMPY_API
  * For backward compatibility
  *
@@ -1902,3 +1906,9 @@ PyArray_ConvertToCommonType(PyObject *op, int *retn)
     PyDataMem_FREE(mps);
     return NULL;
 }
+
+#ifdef __cplusplus
+}
+#endif
+
+

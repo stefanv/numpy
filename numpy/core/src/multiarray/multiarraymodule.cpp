@@ -56,6 +56,10 @@ NPY_NO_EXPORT int NPY_NUMUSERTYPES = 0;
 #include "na_mask.h"
 #include "reduction.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Only here for API compatibility */
 NPY_NO_EXPORT PyTypeObject PyBigArray_Type;
 
@@ -3793,7 +3797,15 @@ static struct PyMethodDef array_module_methods[] = {
     {NULL, NULL, 0, NULL}                /* sentinel */
 };
 
+#ifdef __cplusplus
+}
+#endif
+
 #include "__multiarray_api.c"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* Establish scalar-type hierarchy
  *
@@ -4191,3 +4203,8 @@ PyMODINIT_FUNC initmultiarray(void) {
     }
     return RETVAL;
 }
+
+#ifdef __cplusplus
+}
+#endif
+

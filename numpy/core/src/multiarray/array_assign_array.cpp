@@ -26,6 +26,10 @@
 
 #include "array_assign.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /*
  * Assigns the array from 'src' to 'dst'. The strides must already have
  * been broadcast.
@@ -809,4 +813,9 @@ fail:
     }
     return -1;
 }
+
+#ifdef __cplusplus
+}
+#endif
+
 

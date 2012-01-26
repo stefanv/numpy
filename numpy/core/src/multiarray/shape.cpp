@@ -18,6 +18,11 @@
 
 #include "shape.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 static int
 _check_ones(PyArrayObject *self, int newnd,
                 npy_intp* newdims, npy_intp *strides, npy_intp *masknastrides);
@@ -1311,3 +1316,9 @@ PyArray_RemoveAxesInPlace(PyArrayObject *arr, npy_bool *flags)
     /* The final number of dimensions */
     fa->nd = idim_out;
 }
+
+#ifdef __cplusplus
+}
+#endif
+
+

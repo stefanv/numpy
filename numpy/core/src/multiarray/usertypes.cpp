@@ -39,6 +39,11 @@ maintainer email:  oliphant.travis@ieee.org
 
 #include "usertypes.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 NPY_NO_EXPORT PyArray_Descr **userdescrs=NULL;
 
 static int *
@@ -274,3 +279,9 @@ PyArray_RegisterCanCast(PyArray_Descr *descr, int totype,
     }
     return 0;
 }
+
+#ifdef __cplusplus
+}
+#endif
+
+

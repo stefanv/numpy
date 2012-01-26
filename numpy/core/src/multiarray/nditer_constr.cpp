@@ -16,6 +16,11 @@
 
 #include "arrayobject.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 /* Internal helper functions private to this file */
 static int
 npyiter_check_global_flags(npy_uint32 flags, npy_uint32* itflags);
@@ -3544,3 +3549,9 @@ fail:
 }
 
 #undef NPY_ITERATOR_IMPLEMENTATION_CODE
+
+#ifdef __cplusplus
+}
+#endif
+
+

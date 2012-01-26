@@ -24,6 +24,11 @@
 #include "datetime_busday.h"
 #include "datetime_busdaycal.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 NPY_NO_EXPORT int
 PyArray_WeekMaskConverter(PyObject *weekmask_in, npy_bool *weekmask)
 {
@@ -551,3 +556,9 @@ NPY_NO_EXPORT PyTypeObject NpyBusDayCalendar_Type = {
     0,                                          /* tp_version_tag */
 #endif
 };
+
+#ifdef __cplusplus
+}
+#endif
+
+

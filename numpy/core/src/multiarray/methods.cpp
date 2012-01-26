@@ -24,6 +24,11 @@
 
 #include "methods.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 
 /* NpyArg_ParseKeywords
  *
@@ -2504,3 +2509,9 @@ NPY_NO_EXPORT PyMethodDef array_methods[] = {
         METH_VARARGS | METH_KEYWORDS, NULL},
     {NULL, NULL, 0, NULL}           /* sentinel */
 };
+
+#ifdef __cplusplus
+}
+#endif
+
+

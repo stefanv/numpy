@@ -19,6 +19,11 @@
 #include "lowlevel_strided_loops.h"
 #include "item_selection.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 #define SOBJ_NOTFANCY 0
 #define SOBJ_ISFANCY 1
 #define SOBJ_BADARRAY 2
@@ -2551,5 +2556,10 @@ NPY_NO_EXPORT PyTypeObject PyArrayMapIter_Type = {
     0,                                          /* tp_version_tag */
 #endif
 };
+
+#ifdef __cplusplus
+}
+#endif
+
 
 /** END of Subscript Iterator **/

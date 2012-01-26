@@ -21,6 +21,11 @@
 #include "common.h"
 #include "na_object.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 static PyArray_Descr *
 _descr_from_subtype(PyObject *type)
 {
@@ -835,3 +840,9 @@ PyArray_Return(PyArrayObject *mp)
         return (PyObject *)mp;
     }
 }
+
+#ifdef __cplusplus
+}
+#endif
+
+

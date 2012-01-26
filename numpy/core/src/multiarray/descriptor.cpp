@@ -18,6 +18,11 @@
 #include "common.h"
 #include "descriptor.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
 /*
  * offset:    A starting offset.
  * alignment: A power-of-two alignment.
@@ -2575,11 +2580,11 @@ PyArray_DescrAlignConverter2(PyObject *obj, PyArray_Descr **at)
 NPY_NO_EXPORT PyArray_Descr *
 PyArray_DescrNewByteorder(PyArray_Descr *self, char newendian)
 {
-    PyArray_Descr *newdescr;
+    PyArray_Descr *new_descr;
     char endian;
 
-    newdescr = PyArray_DescrNew(self);
-    endian = newdescr->byteorder;
+    new_descr = PyArray_DescrNew(self);
+    endian = new_descr->byteorder;
     if (endian != PyArray_IGNORE) {
         if (newendian == PyArray_SWAP) {
             /* swap byteorder */
@@ -2589,13 +2594,13 @@ PyArray_DescrNewByteorder(PyArray_Descr *self, char newendian)
             else {
                 endian = PyArray_NATBYTE;
             }
-            newdescr->byteorder = endian;
+            new_descr->byteorder = endian;
         }
         else if (newendian != PyArray_IGNORE) {
-            newdescr->byteorder = newendian;
+            new_descr->byteorder = newendian;
         }
     }
-    if (PyDataType_HASFIELDS(newdescr)) {
+    if (PyDataType_HASFIELDS(new_descr)) {
         PyObject *newfields;
         PyObject *key, *value;
         PyObject *newvalue;
@@ -2621,7 +2626,7 @@ PyArray_DescrNewByteorder(PyArray_Descr *self, char newendian)
             newdescr = PyArray_DescrNewByteorder(
                     (PyArray_Descr *)old, newendian);
             if (newdescr == NULL) {
-                Py_DECREF(newfields); Py_DECREF(newdescr);
+                Py_DECREF(newfields); Py_DECREF(new_descr);
                 return NULL;
             }
             newvalue = PyTuple_New(len);
@@ -2634,15 +2639,15 @@ PyArray_DescrNewByteorder(PyArray_Descr *self, char newendian)
             PyDict_SetItem(newfields, key, newvalue);
             Py_DECREF(newvalue);
         }
-        Py_DECREF(newdescr->fields);
-        newdescr->fields = newfields;
+        Py_DECREF(new_descr->fields);
+        new_descr->fields = newfields;
     }
-    if (PyDataType_HASSUBARRAY(newdescr)) {
-        Py_DECREF(newdescr->subarray->base);
-        newdescr->subarray->base = PyArray_DescrNewByteorder(
+    if (PyDataType_HASSUBARRAY(new_descr)) {
+        Py_DECREF(new_descr->subarray->base);
+        new_descr->subarray->base = PyArray_DescrNewByteorder(
                 self->subarray->base, newendian);
     }
-    return newdescr;
+    return new_descr;
 }
 
 
@@ -3406,3 +3411,9 @@ NPY_NO_EXPORT PyTypeObject PyArrayDescr_Type = {
     0,                                          /* tp_version_tag */
 #endif
 };
+
+#ifdef __cplusplus
+}
+#endif
+
+

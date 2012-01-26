@@ -18,6 +18,8 @@ try:
 except KeyError:
     ENABLE_SEPARATE_COMPILATION = False
 
+ENABLE_SEPARATE_COMPILATION = True
+
 # XXX: ugly, we use a class to avoid calling twice some expensive functions in
 # config.h/numpyconfig.h. I don't see a better way because distutils force
 # config.h generation inside an Extension class, and as such sharing

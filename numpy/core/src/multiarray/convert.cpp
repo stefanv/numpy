@@ -19,9 +19,6 @@
 
 #include "convert.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /*
  * Converts a subarray of 'self' into lists, with starting data pointer
@@ -618,7 +615,5 @@ PyArray_View(PyArrayObject *self, PyArray_Descr *type, PyTypeObject *pytype)
     return (PyObject *)ret;
 }
 
-#ifdef __cplusplus
-}
-#endif
+
 

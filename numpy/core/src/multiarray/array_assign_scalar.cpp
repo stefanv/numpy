@@ -25,10 +25,6 @@
 
 #include "array_assign.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 
 /*
  * Assigns the scalar value to every element of the destination raw array.
@@ -518,9 +514,5 @@ fail:
 
     return -1;
 }
-
-#ifdef __cplusplus
-}
-#endif
 
 

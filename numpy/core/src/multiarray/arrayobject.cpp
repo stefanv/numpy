@@ -53,10 +53,6 @@ maintainer email:  oliphant.travis@ieee.org
 #include "na_object.h"
 #include "na_mask.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /*NUMPY_API
   Compute the size of an array (in number of items)
 */
@@ -1687,9 +1683,4 @@ NPY_NO_EXPORT PyTypeObject PyArray_Type = {
     0,                                          /* tp_version_tag */
 #endif
 };
-
-#ifdef __cplusplus
-}
-#endif
-
 

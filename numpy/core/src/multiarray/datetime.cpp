@@ -26,9 +26,6 @@
 #include "datetime_strings.h"
 #include "na_object.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 /*
@@ -3995,8 +3992,6 @@ find_object_datetime_type(PyObject *obj, int type_num)
     }
 }
 
-#ifdef __cplusplus
-}
-#endif
+
 
 

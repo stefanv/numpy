@@ -16,9 +16,6 @@
 
 #include "calculation.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 static double
 power_of_ten(int n)
@@ -1243,8 +1240,5 @@ PyArray_Trace(PyArrayObject *self, int offset, int axis1, int axis2,
     return ret;
 }
 
-#ifdef __cplusplus
-}
-#endif
 
 

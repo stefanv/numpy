@@ -22,10 +22,6 @@
 
 #include "array_assign.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 /* See array_assign.h for parameter documentation */
 NPY_NO_EXPORT int
 broadcast_strides(int ndim, npy_intp *shape,
@@ -148,9 +144,5 @@ arrays_overlap(PyArrayObject *arr1, PyArrayObject *arr2)
 
     return (start1 < end2) && (start2 < end1);
 }
-
-#ifdef __cplusplus
-}
-#endif
 
 

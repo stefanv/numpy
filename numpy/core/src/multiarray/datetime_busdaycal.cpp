@@ -24,9 +24,6 @@
 #include "datetime_busday.h"
 #include "datetime_busdaycal.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 NPY_NO_EXPORT int
@@ -557,8 +554,6 @@ NPY_NO_EXPORT PyTypeObject NpyBusDayCalendar_Type = {
 #endif
 };
 
-#ifdef __cplusplus
-}
-#endif
+
 
 

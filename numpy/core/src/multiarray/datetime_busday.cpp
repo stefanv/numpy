@@ -23,9 +23,6 @@
 #include "datetime_busday.h"
 #include "datetime_busdaycal.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 /* Gets the day of the week for a datetime64[D] value */
@@ -1326,8 +1323,5 @@ fail:
     return NULL;
 }
 
-#ifdef __cplusplus
-}
-#endif
 
 

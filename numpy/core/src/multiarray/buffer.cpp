@@ -15,9 +15,6 @@
 #include "buffer.h"
 #include "numpyos.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /*************************************************************************
  ****************   Implement Buffer Protocol ****************************
@@ -825,10 +822,6 @@ _descriptor_from_pep3118_format(char *s)
     return NULL;
 }
 
-#endif
-
-#ifdef __cplusplus
-}
 #endif
 
 

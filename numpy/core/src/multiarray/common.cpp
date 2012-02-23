@@ -14,9 +14,6 @@
 #include "common.h"
 #include "buffer.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 NPY_NO_EXPORT PyArray_Descr *
 _array_find_python_scalar_type(PyObject *op)
@@ -618,8 +615,6 @@ _IsWriteable(PyArrayObject *ap)
     return TRUE;
 }
 
-#ifdef __cplusplus
-}
-#endif
+
 
 

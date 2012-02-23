@@ -24,10 +24,6 @@
 #include "_datetime.h"
 #include "datetime_strings.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 
 /* Platform-specific time_t typedef */
 typedef time_t NPY_TIME_T;
@@ -1679,7 +1675,4 @@ fail:
     return NULL;
 }
 
-#ifdef __cplusplus
-}
-#endif
 

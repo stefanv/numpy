@@ -16,9 +16,6 @@
 
 #include "common.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 static int
@@ -796,8 +793,5 @@ NPY_NO_EXPORT PyTypeObject PyArrayFlags_Type = {
 #endif
 };
 
-#ifdef __cplusplus
-}
-#endif
 
 

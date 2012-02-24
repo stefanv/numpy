@@ -21,9 +21,6 @@
 #include "na_mask.h"
 #include "reduction.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 /*
@@ -1195,9 +1192,5 @@ PyArray_CountReduceItems(PyArrayObject *operand,
         return PyArray_Return(result);
     }
 }
-
-#ifdef __cplusplus
-}
-#endif
 
 

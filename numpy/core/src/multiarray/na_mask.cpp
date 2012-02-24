@@ -22,9 +22,6 @@
 #include "array_assign.h"
 #include "na_object.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 /*NUMPY_API
@@ -959,8 +956,5 @@ PyArray_GetMaskAndFunction(
     return 0;
 }
 
-#ifdef __cplusplus
-}
-#endif
 
 

@@ -17,9 +17,6 @@
 
 #include "numpy/npy_3kcompat.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 static void
@@ -287,8 +284,5 @@ _fillobject(char *optr, PyObject *obj, PyArray_Descr *dtype)
     }
 }
 
-#ifdef __cplusplus
-}
-#endif
 
 

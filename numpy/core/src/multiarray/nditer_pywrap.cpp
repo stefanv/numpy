@@ -19,9 +19,6 @@
 
 #include "numpy/npy_3kcompat.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 typedef struct NewNpyArrayIterObject_tag NewNpyArrayIterObject;
@@ -2593,8 +2590,5 @@ NPY_NO_EXPORT PyTypeObject NpyIter_Type = {
 #endif
 };
 
-#ifdef __cplusplus
-}
-#endif
 
 

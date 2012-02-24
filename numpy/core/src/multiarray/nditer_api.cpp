@@ -14,9 +14,6 @@
 #define NPY_ITERATOR_IMPLEMENTATION_CODE
 #include "nditer_impl.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 /* Internal helper functions private to this file */
@@ -2826,8 +2823,6 @@ npyiter_checkreducesize(NpyIter *iter, npy_intp count,
 
 #undef NPY_ITERATOR_IMPLEMENTATION_CODE
 
-#ifdef __cplusplus
-}
-#endif
+
 
 

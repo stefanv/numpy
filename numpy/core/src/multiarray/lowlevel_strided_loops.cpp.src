@@ -20,9 +20,6 @@
 
 #include "lowlevel_strided_loops.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 /*
  * x86 platform may work with unaligned access, except when the
@@ -1305,8 +1302,5 @@ PyArray_TransferMaskedStridedToNDim(npy_intp ndim,
     }
 }
 
-#ifdef __cplusplus
-}
-#endif
 
 

@@ -18,9 +18,6 @@
 #include "common.h"
 #include "descriptor.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 /*
@@ -3412,8 +3409,5 @@ NPY_NO_EXPORT PyTypeObject PyArrayDescr_Type = {
 #endif
 };
 
-#ifdef __cplusplus
-}
-#endif
 
 

@@ -14,9 +14,6 @@
 
 #include "number.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 /*************************************************************************
@@ -874,8 +871,5 @@ NPY_NO_EXPORT PyNumberMethods array_as_number = {
 
 };
 
-#ifdef __cplusplus
-}
-#endif
 
 

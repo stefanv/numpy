@@ -24,9 +24,6 @@
 
 #include "methods.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 
@@ -2510,8 +2507,5 @@ NPY_NO_EXPORT PyMethodDef array_methods[] = {
     {NULL, NULL, 0, NULL}           /* sentinel */
 };
 
-#ifdef __cplusplus
-}
-#endif
 
 

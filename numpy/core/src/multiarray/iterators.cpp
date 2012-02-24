@@ -17,9 +17,6 @@
 #include "ctors.h"
 #include "common.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 #define NEWAXIS_INDEX -1
@@ -2224,8 +2221,5 @@ NPY_NO_EXPORT PyTypeObject PyArrayNeighborhoodIter_Type = {
 #endif
 };
 
-#ifdef __cplusplus
-}
-#endif
 
 

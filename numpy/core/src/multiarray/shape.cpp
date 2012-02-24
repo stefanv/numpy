@@ -18,9 +18,6 @@
 
 #include "shape.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 static int
@@ -1316,9 +1313,5 @@ PyArray_RemoveAxesInPlace(PyArrayObject *arr, npy_bool *flags)
     /* The final number of dimensions */
     fa->nd = idim_out;
 }
-
-#ifdef __cplusplus
-}
-#endif
 
 

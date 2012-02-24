@@ -16,9 +16,6 @@
 
 #include "arrayobject.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 /* Internal helper functions private to this file */
@@ -3550,8 +3547,5 @@ fail:
 
 #undef NPY_ITERATOR_IMPLEMENTATION_CODE
 
-#ifdef __cplusplus
-}
-#endif
 
 

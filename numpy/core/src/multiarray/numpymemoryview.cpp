@@ -21,9 +21,6 @@
 
 #include "numpymemoryview.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 
@@ -315,8 +312,5 @@ _numpymemoryview_init(PyObject **typeobject)
 
 #endif
 
-#ifdef __cplusplus
-}
-#endif
 
 

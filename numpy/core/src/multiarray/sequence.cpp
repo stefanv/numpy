@@ -17,9 +17,6 @@
 
 #include "sequence.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 static int
@@ -215,8 +212,5 @@ array_any_nonzero(PyArrayObject *arr)
     return anyTRUE;
 }
 
-#ifdef __cplusplus
-}
-#endif
 
 

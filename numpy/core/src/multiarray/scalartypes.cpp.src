@@ -25,9 +25,6 @@
 #include "_datetime.h"
 #include "datetime_strings.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 NPY_NO_EXPORT PyBoolScalarObject _PyArrayScalar_BoolValues[] = {
     {PyObject_HEAD_INIT(&PyBoolArrType_Type) 0},
@@ -4194,8 +4191,5 @@ _typenum_fromtypeobj(PyObject *type, int user)
     return typenum;
 }
 
-#ifdef __cplusplus
-}
-#endif
 
 

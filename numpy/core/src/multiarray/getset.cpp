@@ -18,9 +18,6 @@
 #include "descriptor.h"
 #include "getset.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 /*******************  array attribute get and set routines ******************/
@@ -935,8 +932,5 @@ NPY_NO_EXPORT PyGetSetDef array_getsetlist[] = {
 };
 
 /****************** end of attribute get and set routines *******************/
-#ifdef __cplusplus
-}
-#endif
 
 

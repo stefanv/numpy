@@ -12,9 +12,6 @@
 #define NPY_ITERATOR_IMPLEMENTATION_CODE
 #include "nditer_impl.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 /* SPECIALIZED iternext functions that handle the non-buffering part */
@@ -609,8 +606,5 @@ NpyIter_GetGetMultiIndex(NpyIter *iter, char **errmsg)
 
 #undef NPY_ITERATOR_IMPLEMENTATION_CODE
 
-#ifdef __cplusplus
-}
-#endif
 
 

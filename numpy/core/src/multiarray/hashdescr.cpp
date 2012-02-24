@@ -10,9 +10,6 @@
 
 #include "hashdescr.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 /*
@@ -318,8 +315,5 @@ PyArray_DescrHash(PyObject* odescr)
     return hash;
 }
 
-#ifdef __cplusplus
-}
-#endif
 
 

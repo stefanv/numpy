@@ -14,9 +14,6 @@
 
 #include "numpy/npy_3kcompat.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 /*
@@ -695,8 +692,5 @@ buffer_filled:
 #undef MATCH_ONE_OR_MORE
 #undef MATCH_ZERO_OR_MORE
 
-#ifdef __cplusplus
-}
-#endif
 
 

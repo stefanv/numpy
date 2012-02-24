@@ -21,9 +21,6 @@
 #include "common.h"
 #include "na_object.h"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 
 static PyArray_Descr *
@@ -841,8 +838,5 @@ PyArray_Return(PyArrayObject *mp)
     }
 }
 
-#ifdef __cplusplus
-}
-#endif
 
 

@@ -84,7 +84,7 @@ Assigning to closed enums::
   
   a[0] = 'F' # ValueError!
 
-Assigning to open::
+Assigning to open enums::
 
   t = np.dtype('enum')
 

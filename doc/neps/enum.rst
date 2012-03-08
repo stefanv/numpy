@@ -33,7 +33,7 @@ Building closed enums by hand::
   # explicitly provide all the numerical values
   t = np.dtype('enum[A:0, B:12, C:3, D:4, E:128]')
 
-  # explicitly provide some of the numerical values
+  # explicitly provide some of the numerical values, B=11, C=12, etc.
   t = np.dtype('enum[A:10, B, C, D, E:128]')
 
   # explicitly specify the storage 
@@ -75,7 +75,7 @@ C Implementation Details
 Mapping
 .......
 
-To implement the mapping between values and names, we will use _KHash, which is a small, header-only, 
+To implement the mapping between values and names, we will use KHash_, which is a small, header-only, 
 efficient hashmap library in C. 
 We will maintain both a map from names to values, as well as the inverse map from 
 values to names. 

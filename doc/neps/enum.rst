@@ -15,12 +15,12 @@ defined once, and for an enumerated type that can grow dynamically, as it encoun
 This NEP describes two additional type kinds, a traditional (or 'closed') enum, and a dynamic 
 (or 'open') enum. 
 
-Types proposed
-==============
-
 
 Examples of use
 ===============
+
+*Question: should enum types allow the user to specify some or all of the numerical values, as is possible
+in C? Or should enum types only expose the names as opaque things?*
 
 Closed Enums
 ............
@@ -33,10 +33,10 @@ Building closed enums by hand::
   # explicitly provide all the numerical values
   t = np.dtype('enum[A:0, B:12, C:3, D:4, E:128]')
 
-  # explicitly provide some of the numerical values, B=11, C=12, etc.
+  # explicitly provide some of the numerical values, generate B=11, C=12, etc.
   t = np.dtype('enum[A:10, B, C, D, E:128]')
 
-  # explicitly specify the storage 
+  # explicitly specify the storage size
   t = np.dtype('enum:uint16[A, B, C, D, E]')
 
 Building closed enums using external sources::
@@ -50,7 +50,7 @@ Building closed enums using external sources::
   # explicitly provide all the numerical values
   t = np.dtype('enum', map=(n,v))
 
-  # explicitly specify the storage 
+  # explicitly specify the storage size
   t = np.dtype('enum:uint32', map=n)
 
 Open Enums
@@ -61,7 +61,7 @@ Building open enums::
   # automatically generate numerical values, starting from zero
   t = np.dtype('enum', map=None)
 
-  # explicitly specify the storage 
+  # explicitly specify the storage size
   t = np.dtype('enum:uint32', map=None)
 
   # adapt an existing closed enum
@@ -83,6 +83,12 @@ values to names.
 The name-to-value mapping will be stored as a Capsule in the dtype metadata dict under the key '__n2v__'. 
 The value-to-name mapping will be stored as a Capsule in the dtype metadata dict under the key '__v2n__'. 
 In addition to convenience, this scheme will maintain the immutability of dtypes in the case of open enums.
+
+*Example code storing and retrieving a KHash in a Python Capule goes here*
+
+Storage Size
+............
+The element storage size will also be stored in the dtype metadata dict, under the key '__sz__'.
 
 
 Serialization

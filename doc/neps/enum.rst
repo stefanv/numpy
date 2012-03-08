@@ -74,7 +74,7 @@ Building open enums::
 *Question: the last example would always adapt closed enums to open, and leave no means to simply copy
 a closed enum. Is there a different, more explicit way to spell these cases?*
 
-Assignemnt
+Assignment
 ----------
 
 Closed Enums::

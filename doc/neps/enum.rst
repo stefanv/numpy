@@ -1,10 +1,13 @@
-====================================================================
- A proposal for implementing some date/time types in NumPy
-====================================================================
-
+:Title: A proposal for implementing enumerated types in NumPy
 :Author: Bryan Van de Ven
 :Contact: bryanv@continuum.io
 :Date: 2012-03-08
+
+*****************************************************
+A proposal for implementing enumerated types in NumPy
+*****************************************************
+
+.. contents:: Table of Contents
 
 Executive summary
 =================
@@ -22,12 +25,15 @@ Examples of use
 *Question: should enum types allow the user to specify some or all of the numerical values, as is possible
 in C? Or should enum types only expose the names as opaque things?*
 
-Closed Enums
-............
+*Question: what is the exact specification for permissable names?*
+
+
+Construction
+------------
 
 Building closed enums by hand::
 
-  # automatically generate numerical values, starting from zero
+  # automatically generate numerical values, starting from zero, uses smallest possible storage size
   t = np.dtype('enum[A, B, C, D, E]')
 
   # explicitly provide all the numerical values
@@ -53,27 +59,55 @@ Building closed enums using external sources::
   # explicitly specify the storage size
   t = np.dtype('enum:uint32', map=n)
 
-Open Enums
-..........
-
 Building open enums::
 
-  # automatically generate numerical values, starting from zero
-  t = np.dtype('enum', map=None)
+  # automatically generate numerical values, starting from zero, defaults to largest storage size
+  t = np.dtype('enum')
 
   # explicitly specify the storage size
-  t = np.dtype('enum:uint32', map=None)
+  t = np.dtype('enum:uint32')
 
   # adapt an existing closed enum
   tc = np.dtype('enum[A:0, B:12, C:3, D:4, E:128]')
-  t = np.dtype(tc, map=None)
+  t = np.dtype(tc)
 
+*Question: the last example would always adapt closed enums to open, and leave no means to simply copy
+a closed enum. Is there a different, more explicit way to spell these cases?*
 
-C Implementation Details
-========================
+Assignemnt
+----------
+
+Closed Enums::
+
+  t = np.dtype('enum[A, B, C, D, E]')
+
+  a = np.array(['A', 'A', 'E', 'D'], dtype=tclose)
+  
+  a[0] = 'B'
+  
+  a[0] = 'F' # ValueError!
+
+Open Enums::
+
+  t = np.dtype('enum')
+
+  a = np.array(['A', 'A', 'E', 'D'], dtype=tclose)
+  
+  a[0] = 'B'
+  
+  a[0] = 'F' # OK!
+
+Printing
+--------
+
+*Are there any special considerations here? 
+What to do in the case of very long names?*
+
+Implementation Details
+======================
 
 Mapping
-.......
+-------
 
 To implement the mapping between values and names, we will use KHash_, which is a small, header-only, 
 efficient hashmap library in C. 
@@ -87,12 +121,12 @@ In addition to convenience, this scheme will maintain the immutability of dtypes
 *Example code storing and retrieving a KHash in a Python Capule goes here*
 
 Storage Size
-............
+------------
 The element storage size will also be stored in the dtype metadata dict, under the key '__sz__'.
 
 
 Serialization
-.............
+-------------
 
 *Here some input is needed. Writing out enums presents some questions centered around what to do with 
 the name-value mapping in the case of ASCII formats.

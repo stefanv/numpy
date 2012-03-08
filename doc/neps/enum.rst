@@ -21,7 +21,6 @@ This NEP describes two additional type kinds, a traditional (or 'closed') enum, 
 
 Examples of use
 ===============
-
 *Question: should enum types allow the user to specify some or all of the numerical values, as is possible
 in C? Or should enum types only expose the names as opaque things?*
 
@@ -30,7 +29,6 @@ in C? Or should enum types only expose the names as opaque things?*
 
 Construction
 ------------
-
 Building closed enums by hand::
 
   # automatically generate numerical values, starting from zero, uses smallest possible storage size
@@ -76,8 +74,7 @@ a closed enum. Is there a different, more explicit way to spell these cases?*
 
 Assignment
 ----------
-
-Closed Enums::
+Assigning to closed enums::
 
   t = np.dtype('enum[A, B, C, D, E]')
 
@@ -87,7 +84,7 @@ Closed Enums::
   
   a[0] = 'F' # ValueError!
 
-Open Enums::
+Assigning to open::
 
   t = np.dtype('enum')
 
@@ -99,13 +96,11 @@ Open Enums::
 
 Printing
 --------
-
 *Are there any special considerations here? 
 What to do in the case of very long names?*
 
 Implementation Details
 ======================
-
 Mapping
 -------
 
@@ -114,8 +109,8 @@ efficient hashmap library in C.
 We will maintain both a map from names to values, as well as the inverse map from 
 values to names. 
 
-The name-to-value mapping will be stored as a Capsule in the dtype metadata dict under the key '__n2v__'. 
-The value-to-name mapping will be stored as a Capsule in the dtype metadata dict under the key '__v2n__'. 
+The name-to-value mapping will be stored as a CObject_ in the dtype metadata dict under the key '__n2v__'. 
+The value-to-name mapping will be stored as a CObject in the dtype metadata dict under the key '__v2n__'. 
 In addition to convenience, this scheme will maintain the immutability of dtypes in the case of open enums.
 
 *Example code storing and retrieving a KHash in a Python Capule goes here*
@@ -127,7 +122,6 @@ The element storage size will also be stored in the dtype metadata dict, under t
 
 Serialization
 -------------
-
 *Here some input is needed. Writing out enums presents some questions centered around what to do with 
 the name-value mapping in the case of ASCII formats.
 Should NumPy refuse to save an array containing an enum field in an ASCII format?
@@ -137,8 +131,6 @@ that users can write their own sidecar files?
 How should these options be spelled in NumPy?* 
 
 .. _KHash: http://attractivechaos.awardspace.com/khash.h.html
-
-.. [1] http://docs.python.org/c-api/capsule.html#capsules
 
 .. Local Variables:
 .. mode: rst

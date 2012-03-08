@@ -11,7 +11,7 @@ Executive summary
 NumPy provides some functionality for storing fixed-length strings, but does not have any capability to 
 treat textual names directly as values of an enumerated type. 
 Desire has been expressed for enumerated types in NumPy, both for a traditional enum whose values are 
-defined once, and for an enumerated type that can grow dynamically, as it encounters new values. 
+defined once and fixed, and for an enumerated type that can grow dynamically, as it encounters new names. 
 This NEP describes two additional type kinds, a traditional (or 'closed') enum, and a dynamic 
 (or 'open') enum. 
 

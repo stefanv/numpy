@@ -109,7 +109,7 @@ efficient hashmap library in C.
 We will maintain both a map from names to values, as well as the inverse map from 
 values to names. 
 
-The name-to-value mapping will be stored as a CObject_ in the dtype metadata dict under the key '__n2v__'. 
+The name-to-value mapping will be stored as a CObject in the dtype metadata dict under the key '__n2v__'. 
 The value-to-name mapping will be stored as a CObject in the dtype metadata dict under the key '__v2n__'. 
 In addition to convenience, this scheme will maintain the immutability of dtypes in the case of open enums.
 

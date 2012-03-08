@@ -113,7 +113,7 @@ The name-to-value mapping will be stored as a CObject in the dtype metadata dict
 The value-to-name mapping will be stored as a CObject in the dtype metadata dict under the key '__v2n__'. 
 In addition to convenience, this scheme will maintain the immutability of dtypes in the case of open enums.
 
-*Example code storing and retrieving a KHash in a Python Capule goes here*
+*Example code storing and retrieving a KHash in a CObject goes here*
 
 Storage Size
 ------------

@@ -1,13 +1,13 @@
-:Title: A proposal for implementing enumerated types in NumPy
+:Title: A proposal for implementing factored dtypes in NumPy
 :Author: Bryan Van de Ven
 :Contact: bryanv@continuum.io
 :Copyright: Copyright 2011 by Continuum Analytics, Inc
 :License: CC By-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)
-:Date: 2012-03-08
+:Date: 2012-03-15
 
-*****************************************************
-A proposal for implementing enumerated types in NumPy
-*****************************************************
+****************************************************
+A proposal for implementing factored dtypes in NumPy
+****************************************************
 
 .. contents:: Table of Contents
 

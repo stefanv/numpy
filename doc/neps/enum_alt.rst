@@ -21,16 +21,13 @@ Use Cases
 =========
 An enumerated type or factor in numpy must accomodate several use cases:
 
- * Ingest arrays from text files where the list of factors is known and defined in advance
- * Ingest arrays from text files where the list of factors is not known, or not defined in advance
- * Adapt existing integral arrays or integral fields of arrays to conform to a factored dtype
+* Ingest arrays from text files where the list of factors is known and defined in advance
+* Ingest arrays from text files where the list of factors is not known, or not defined in advance
+* Adapt existing integral arrays or integral fields of arrays to conform to a factored dtype
 
 
 Examples of use
 ===============
-
-
-
 Construction
 ------------
 We propse to add a single function, numpy.factor, that can create factored dtypes from existing integral dtypes, and adapt arrays to use factored dtypes.  
@@ -128,8 +125,8 @@ Serialization
 -------------
 I see two possibilities:
  
-  * write out the factor level names explicitly. This could be problematic width fixed with fields. Also, if na=True, information could be lost.
-  * write out the values, and provide a means to serialize the factored dtype, if the user desires. 
+* write out the factor level names explicitly. This could be problematic width fixed with fields. Also, if na=True, information could be lost.
+* write out the values, and provide a means to serialize the factored dtype, if the user desires. 
 
 I am inclined to prefer the second possibility. 
 

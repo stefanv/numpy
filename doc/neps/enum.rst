@@ -90,7 +90,7 @@ Assigning to open enums::
 
   t = np.dtype('enum')
 
-  a = np.array(['A', 'A', 'E', 'D'], dtype=tclose)
+  a = np.array(['A', 'A', 'E', 'D'], dtype=topen)
   
   a[0] = 'B'
   

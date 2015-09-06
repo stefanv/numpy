@@ -27,6 +27,7 @@ classes contained in the package, see the :ref:`reference`.
    :maxdepth: 2
 
    introduction
+   tutorial
    basics
    performance
    misc

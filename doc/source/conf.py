@@ -18,11 +18,13 @@ needs_sphinx = '1.0'
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 
 sys.path.insert(0, os.path.abspath('../sphinxext'))
+sys.path.insert(0, os.path.abspath('../sphinxcontrib/examplecode'))
 
 extensions = ['sphinx.ext.autodoc', 'sphinx.ext.pngmath', 'numpydoc',
               'sphinx.ext.intersphinx', 'sphinx.ext.coverage',
               'sphinx.ext.doctest', 'sphinx.ext.autosummary',
-              'matplotlib.sphinxext.plot_directive']
+              'matplotlib.sphinxext.plot_directive',
+              'examplecode.examplecode']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
